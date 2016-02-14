@@ -1,3 +1,3 @@
-# gestionApp
+# Gestión IPN - Node.JS App
 
-a [Sails](http://sailsjs.org) application
+Sistema de gestión escolar para prototipos. CECyT Noº 9
