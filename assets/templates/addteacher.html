@@ -1,0 +1,32 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center center" layout-fill flex-sm="95" flex-gt-sm="35">
+    <div flex layout-gt-sm="row" layout-align="center center">
+      <span class="md-headline" flex="90">Agregar Profesor</span>
+      <md-icon md-svg-icon="svg/back.svg" ng-click="goto('users')" style="cursor: pointer; margin-left: 1em;"></md-icon>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Nombre</label>
+        <input type="text" ng-model="addteacher.name">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Nombre de usuario</label>
+        <input type="text" ng-model="addteacher.username">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Dirección</label>
+        <input type="text" ng-model="addteacher.address">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-datepicker ng-model="addteacher.borndate" md-placeholder="Fecha de nacimiento"></md-datepicker>
+    </div>
+    <div flex>
+      <md-button class="md-raised md-primary" ng-click="addTeacher()">Registrar</md-button>
+    </div>
+  </md-whiteframe>
+</div>

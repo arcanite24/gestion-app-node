@@ -1,0 +1,38 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+  <md-whiteframe ng-show="!isLogged" class="md-whiteframe-3dp" flex-xs="90" flex-gt-xs="30" layout="column" layout-align="center center">
+    <div flex="95">
+      <img src="svg/ipn.svg" />
+    </div>
+    <div flex="95">
+      <md-input-container>
+        <label>Nombre de usuario:</label>
+        <input ng-model="login.username">
+      </md-input-container>
+    </div>
+    <div flex="95">
+      <md-input-container>
+        <label>Contraseña:</label>
+        <input ng-model="login.password" type="password">
+      </md-input-container>
+    </div>
+    <div flex="95">
+      <md-button class="md-raised md-primary" ng-click="login()">
+        Iniciar Sesión
+      </md-button>
+    </div>
+  </md-whiteframe>
+
+  <md-whiteframe ng-show="isLogged" class="md-whiteframe-3dp" flex-xs="90" flex-gt-xs="30" layout="column" layout-align="center center">
+    <div flex="95">
+      <img src="svg/ipn.svg" />
+    </div>
+    <div flex="95">
+      <h4>Sesión iniciada correctamente.</h4>
+    </div>
+    <div flex="95">
+      <md-button class="md-raised md-primary" ng-click="logout()">
+        Cerrar Sesión
+      </md-button>
+    </div>
+  </md-whiteframe>
+</div>

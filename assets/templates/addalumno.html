@@ -1,0 +1,50 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center center" layout-fill flex-sm="95" flex-gt-sm="35">
+    <div flex layout-gt-sm="row" layout-align="center center">
+      <span class="md-headline" flex="90">Agregar Alumno</span>
+      <md-icon md-svg-icon="svg/back.svg" ng-click="goto('users')" style="cursor: pointer; margin-left: 1em;"></md-icon>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Nombre</label>
+        <input type="text" ng-model="addalumno.name">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Nombre de usuario</label>
+        <input type="text" ng-model="addalumno.username">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Dirección</label>
+        <input type="text" ng-model="addalumno.address">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Boleta</label>
+        <input type="text" ng-model="addalumno.boleta">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Telefono</label>
+        <input type="text" ng-model="addalumno.telefono">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-radio-group ng-model="addalumno.sexo">
+        <md-radio-button value="Hombre" class="md-primary" ng-checked="true">Hombre</md-radio-button>
+        <md-radio-button value="Mujer" class="md-primary">Mujer</md-radio-button>
+      </md-radio-group>
+    </div>
+    <div flex>
+      <md-datepicker ng-model="addalumno.borndate" md-placeholder="Fecha de nacimiento"></md-datepicker>
+    </div>
+    <div flex>
+      <md-button class="md-raised md-primary" ng-click="addAlumno()">Registrar</md-button>
+    </div>
+  </md-whiteframe>
+</div>

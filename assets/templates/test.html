@@ -1,0 +1,23 @@
+<h1>Debug Page</h1>
+<table>
+  <tr ng-repeat="online in onlines">
+    <td>
+      Usuario online: {{online.id}}
+    </td>
+  </tr>
+</table>
+<hr>
+<table>
+  <h1>Users</h1>
+  <tr ng-repeat="wea in weas">
+    <td>
+      {{wea.username}}
+    </td>
+  </tr>
+</table>
+<hr>
+<div class="wea">
+  <input type="text" ng-model="username" placeholder="Username">
+  <input type="text" ng-model="password" placeholder="Password">
+  <button type="button" ng-click="register()">Enviar</button>
+</div>
