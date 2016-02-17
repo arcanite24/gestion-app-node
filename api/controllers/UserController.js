@@ -13,9 +13,25 @@ module.exports = {
 			User.create(tempUser).exec(function (err, user) {
 				if (err) {
 					console.log(err);
-					return;
+					res.json({error: true, message: 'Error.'});
 				} else {
 					User.publishCreate(user);
+					res.json({error: false, message: 'Usuario creado.', user: user})
+				}
+			});
+		}
+	},
+
+	remove: function (req, res) {
+		if (req.isSocket && req.method == 'DELETE') {
+			var idUser = req.param('id');
+			User.destroy({id: idUser}).exec(function (err, user) {
+				if (err) {
+					console.log(err);
+					res.json({error: true, message: 'Error al borrar usuario.', id: user.id});
+				} else {
+					User.publishDestroy(idUser);
+					res.json({error: false, message: 'Usuario borrado.', id_user: idUser});
 				}
 			});
 		}

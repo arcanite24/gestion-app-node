@@ -14,15 +14,27 @@ module.exports = {
       unique: true,
       alphanumericdashed: true
     },
-    password: 'string',
+    password: {
+      type: 'string',
+      required: true
+    },
     type: {
       type: 'integer',
-      defaultsTo: 2
+      required: true
     },
     //Datos personales
-    bornDate: 'string',
-    name: 'string',
-    address: 'string',
+    bornDate: {
+      type: 'string',
+      required: true
+    },
+    name: {
+      type: 'string',
+      required: true
+    },
+    address: {
+      type: 'string',
+      required: true
+    },
     //Relaciones
     datos: {
       collection: 'dato',

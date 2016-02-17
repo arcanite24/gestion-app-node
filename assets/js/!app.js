@@ -7,6 +7,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('users', {url: '/users', templateUrl: 'templates/users.html', controller: 'UsersCtrl'})
     .state('login', {url: '/login', templateUrl: 'templates/login.html', controller: 'LoginCtrl'})
     //Gestion Users
+    .state('getusers', {url: '/getusers', templateUrl: 'templates/getusers.html', controller: 'GetUsersCtrl'})
     .state('addteacher', {url: '/addteacher', templateUrl: 'templates/addteacher.html', controller: 'AddTeacherCtrl'})
     .state('addalumno', {url: '/addalumno', templateUrl: 'templates/addalumno.html', controller: 'AddAlumnoCtrl'})
 

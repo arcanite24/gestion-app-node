@@ -20,9 +20,10 @@ app.controller('AddTeacherCtrl', function ($scope, $state, $mdToast) {
 
     io.socket.request({
       method: 'post',
-      url: '/auth/register',
+      url: '/user/create',
       params: teacher
     }, function (data) {
+      console.log(data);
       if (data.error) {
         $mdToast.show(
           $mdToast.simple()

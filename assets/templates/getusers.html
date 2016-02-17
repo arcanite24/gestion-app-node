@@ -1,0 +1,26 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('users')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Usuarios</span>
+        <md-input-container style="margin-left: 1em;">
+          <label>Filtrar por nombre</label>
+          <input type="text" ng-model="searchText">
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-show="!users.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-list-item class="md-3-line animateLeave" ng-repeat="user in users | filter:searchText" ng-click="goToPerson(user.id, $event)">
+        <md-icon md-svg-icon="svg/account-circle.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2"><strong>{{user.name}}</strong> - <span ng-if="user.type == 1"><em>Admnistrador</em></span><span ng-if="user.type == 2"><em>Alumno</em></span><span ng-if="user.type == 3"><em>Profesor</em></span></h3>
+          <h4>hola</h3>
+          <p>mundo</p>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeUser(user.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>

@@ -32,3 +32,24 @@
 [ui-view].ng-leave-active {
   opacity: 0;
 }
+
+.animateLeave.ng-enter, .animateLeave.ng-leave {
+  -webkit-transition:all .5s ease-in-out;
+  transition:all .5s ease-in-out;
+}
+
+.animateLeave.ng-leave {
+  opacity: 1;
+}
+
+.animateLeave.ng-leave-active {
+  opacity: 0;
+}
+
+.animateLeave.ng-enter {
+  opacity: 0;
+}
+
+.animateLeave.ng-enter-active {
+  opacity: 1;
+}

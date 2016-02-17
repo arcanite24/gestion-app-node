@@ -1,0 +1,16 @@
+<div class="container" layout="column" layout-padding layout-align="center center">
+  <h3>Inspeccionar usuario</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start">
+    <span><strong>Nombre: </strong>{{user.name}}</span>
+    <span><strong>Username: </strong>{{user.username}}</span>
+    <span><strong>Dirección: </strong>{{user.address}}</span>
+    <span><strong>Fecha de nacimiento: </strong>{{user.bornDate | date: format: shortDate}}</span>
+    <span><strong>Tipo de cuenta: </strong><span ng-if="user.type == 1"><em>Admnistrador</em></span><span ng-if="user.type == 2"><em>Alumno</em></span><span ng-if="user.type == 3"><em>Profesor</em></span></span>
+    <span><strong>Fecha de creación: </strong>{{user.createdAt | date: medium}}</span>
+    <md-divider ng-if="user.datos.length"></md-divider>
+  </div>
+  <h3 ng-if="user.datos.length">Datos adicionales</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start" ng-if="user.datos.length">
+    <span ng-repeat="dato in user.datos"><strong>{{dato.name}}: </strong>{{dato.value}}</span>
+  </div>
+</div>

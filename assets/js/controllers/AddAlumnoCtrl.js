@@ -20,7 +20,7 @@ app.controller('AddAlumnoCtrl', function ($scope, $state, $mdToast) {
 
     io.socket.request({
       method: 'post',
-      url: '/auth/register',
+      url: '/user/create',
       params: alumno
     }, function (data) {
       if (data.error) {
@@ -36,7 +36,7 @@ app.controller('AddAlumnoCtrl', function ($scope, $state, $mdToast) {
           url: '/dato',
           params: {
             user: iduser,
-            name: 'sexo',
+            name: 'Sexo',
             value: $scope.addalumno.sexo
           }
         });
@@ -45,7 +45,7 @@ app.controller('AddAlumnoCtrl', function ($scope, $state, $mdToast) {
           url: '/dato',
           params: {
             user: iduser,
-            name: 'boleta',
+            name: 'Boleta',
             value: $scope.addalumno.boleta
           }
         });
