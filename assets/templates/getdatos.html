@@ -1,0 +1,29 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('users')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Dato</span>
+        <md-input-container style="margin-left: 1em;">
+          <label>Usuario</label>
+          <md-select ng-model="userid" ng-change="foo()">
+            <md-option ng-repeat="user in users" value="{{user.id}}">
+              {{user.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-if="!datos.length">
+        <h3>No hay existen datos para este usuario.</h3>
+      </md-list-item>
+      <md-list-item class="md-3-line animateLeave" ng-repeat="dato in datos">
+        <md-icon md-svg-icon="svg/account-box-outline.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <span><strong>Nombre: </strong>{{dato.name}}</span>
+          <span><strong>Valor: </strong>{{dato.value}}</span>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeDato(dato.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>

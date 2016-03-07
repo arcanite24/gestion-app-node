@@ -4,6 +4,7 @@ app.controller('LoginBarCtrl', function ($scope, $window, $rootScope, $state, Lo
 
   $rootScope.$on('$stateChangeSuccess', function () {
     $scope.logged = LoginService.isLogged();
+    $scope.user_type = localStorage.getItem('user_type');
     if (!$scope.logged) {
       $state.go('login');
     }

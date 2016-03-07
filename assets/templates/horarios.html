@@ -1,0 +1,56 @@
+<div ng-cloak>
+  <md-list>
+    <md-subheader class="md-no-sticky" layout="column">
+      <span class="md-title">Gestión de horarios y clases</span>
+      <span flex></span>
+      <md-button class="md-raised" ng-click="goto('index')">Regresar</md-button>
+    </md-subheader>
+    <md-list-item class="md-3-line" ng-click="goto('addclase')">
+      <img ng-src="svg/add.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Agregar clase</h3>
+        <p>Registrar materia en el sistema</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('getclases')">
+      <img ng-src="svg/bank.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Consultar clases</h3>
+        <p>Obtener información y buscar clases</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('addhorario')">
+      <img ng-src="svg/book.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Agregar horario</h3>
+        <p>Registrar horario en el sistema</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('gethorarios')">
+      <img ng-src="svg/book-minus.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Consultar horarios</h3>
+        <p>Verificar horarios registrados en el sistema</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('setmaterias')">
+      <img ng-src="svg/materia.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Asignar materias a un horario</h3>
+        <p>Asignar clases y horas</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('delclase')">
+      <img ng-src="svg/book-minus.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Quitar clases de un horario</h3>
+        <p>Eliminar clases de cierto horario</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+</div>

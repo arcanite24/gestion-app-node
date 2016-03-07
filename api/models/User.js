@@ -39,6 +39,12 @@ module.exports = {
     datos: {
       collection: 'dato',
       via: 'user'
+    },
+    grupo: {
+      model: 'grupo'
+    },
+    grupoAsProfe: {
+      model: 'grupo'
     }
   }
 };

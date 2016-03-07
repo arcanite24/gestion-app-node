@@ -1,0 +1,25 @@
+<div class="container" layout="column" layout-padding layout-align="center center">
+  <h3>Inspeccionar horario</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start">
+    <span><strong>Nombre: </strong>{{horario.nombre}}</span>
+    <span><strong>Cantidad de clases: </strong>{{horario.materias.length}}</span>
+    <span><strong>Grupo: </strong>{{horario.grupo_horario.nombre}}</span>
+    <md-divider ng-if="horario.materias.length"></md-divider>
+  </div>
+  <h3 ng-if="horario.materias.length">Materias</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start" ng-if="horario.materias.length">
+    <span ng-repeat="clase in horario.materias"><strong>{{clase.nombre_materia}}</strong> - 
+      <span ng-if="clase.dia == 1">Lunes: </span>
+      <span ng-if="clase.dia == 2">Martes: </span>
+      <span ng-if="clase.dia == 3">Miércoles: </span>
+      <span ng-if="clase.dia == 4">Jueves: </span>
+      <span ng-if="clase.dia == 5">Viernes: </span>
+      {{clase.hora_inicio}} - {{clase.hora_fin}}
+    </span>
+  </div>
+  <md-divider ng-if="grupo.profesores.length"></md-divider>
+  <h3 ng-if="grupo.profesores.length">Profesores</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start" ng-if="grupo.profesores.length">
+    <span ng-repeat="profe in grupo.profesores"><strong>{{profe.name}}</strong></span>
+  </div>
+</div>

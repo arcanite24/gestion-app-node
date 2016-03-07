@@ -1,0 +1,42 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('horarios')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Quitar clase</span>
+        <md-input-container>
+          <label>Horario</label>
+          <md-select ng-model="horarioid" ng-change="setHorario()" style="margin-left: 1em;">
+            <md-option ng-repeat="horario in horarios" value="{{horario.id}}">
+              {{horario.nombre}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-show="!horarios.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-subheader>
+        <h4>{{horarioSeleccionado.nombre || 'Selecciona un horario'}}</h4>
+      </md-subheader>
+      <md-list-item ng-if="!horarioSeleccionado.materias.length">
+        <h4>Horario sin materias asignadas.</h4>
+      </md-list-item>
+      <md-list-item class="md-2-line animateLeave" ng-repeat="clase in horarioSeleccionado.materias">
+        <md-icon md-svg-icon="svg/book.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2"><strong>{{clase.nombre_materia}}</strong></h3>
+          <h4>
+            <span ng-if="clase.dia == 1">Lunes: </span>
+            <span ng-if="clase.dia == 2">Martes: </span>
+            <span ng-if="clase.dia == 3">Miércoles: </span>
+            <span ng-if="clase.dia == 4">Jueves: </span>
+            <span ng-if="clase.dia == 5">Viernes: </span>
+            {{clase.hora_inicio}} - {{clase.hora_fin}}
+          </h4>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeClase(clase.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>

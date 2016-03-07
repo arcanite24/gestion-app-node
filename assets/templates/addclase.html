@@ -1,0 +1,27 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center center" layout-fill flex-sm="95" flex-gt-sm="35">
+    <div flex layout-gt-sm="row" layout-align="center center">
+      <span class="md-headline" flex="90">Agregar clase</span>
+      <md-icon md-svg-icon="svg/back.svg" ng-click="goto('horarios')" style="cursor: pointer; margin-left: 1em;"></md-icon>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Nombre de la clase</label>
+        <input type="text" ng-model="addclase.nombre">
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Semestre</label>
+        <md-select ng-model="addclase.semestre">
+          <md-option ng-repeat="semestre in semestres" value="{{semestre.value}}">
+            {{semestre.nombre}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-button class="md-raised md-primary" ng-click="addClase()">Agregar</md-button>
+    </div>
+  </md-whiteframe>
+</div>

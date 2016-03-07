@@ -15,7 +15,7 @@ module.exports = {
           var token = jwt.sign(user, 'LaTecnicaAlServicioDeLaPatria', {
             expiresIn: 1440
           });
-
+          console.log('Usuario: ' + user.username + ' logeado.');
           res.json({
             logged: true,
             message: 'Sesión iniciada correctamente.',

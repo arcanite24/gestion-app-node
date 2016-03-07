@@ -1,0 +1,57 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center center" layout-fill flex-sm="95" flex-gt-sm="35">
+    <div flex layout-gt-sm="row" layout-align="center center">
+      <span class="md-headline" flex="90">Asignar materias</span>
+      <md-icon md-svg-icon="svg/back.svg" ng-click="goto('horarios')" style="cursor: pointer; margin-left: 1em;"></md-icon>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Horario</label>
+        <md-select ng-model="horarioid">
+          <md-option ng-repeat="horario in horarios" value="{{horario.id}}">
+            {{horario.nombre}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Materia</label>
+        <md-select ng-model="materiaid">
+          <md-option ng-repeat="materia in materias" value="{{materia.nombre}}">
+            {{materia.nombre}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Dia</label>
+        <md-select ng-model="dia">
+          <md-option ng-repeat="dia in dias" value="{{dia.value}}">
+            {{dia.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Inicio</label>
+        <md-select ng-model="horainicio">
+          <md-option ng-repeat="hora in horas" value="{{hora.value}}">
+            {{hora.value}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Fin</label>
+        <md-select ng-model="horafin">
+          <md-option ng-repeat="hora in horas" value="{{hora.value}}">
+            {{hora.value}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-button class="md-raised md-primary" ng-click="setMateria()">Asignar</md-button>
+    </div>
+  </md-whiteframe>
+</div>

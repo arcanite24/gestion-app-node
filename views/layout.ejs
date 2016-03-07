@@ -17,7 +17,10 @@
       <md-toolbar>
         <div class="md-toolbar-tools" ng-controller="LoginBarCtrl">
           <h2>
-            <span>Gestión IPN</span>
+            <span ui-sref="index" style="cursor: pointer;">Gestión IPN</span>
+            <span ng-if="user_type == 1"> - Administrador</span>
+            <span ng-if="user_type == 2"> - Alumno</span>
+            <span ng-if="user_type == 3"> - Profesor</span>
           </h2>
           <span flex></span>
           <md-button class="md-raised md-primary md-hue-2" aria-label="login" ng-hide="logged" ng-click="go('login')">
@@ -94,17 +97,37 @@
     <script src="/js/dependencies/core-min.js"></script>
     <script src="/js/dependencies/jquery-2.2.0.min.js"></script>
     <script src="/js/dependencies/md5-min.js"></script>
+    <script src="/js/dependencies/rtc.min.js"></script>
     <script src="/js/dependencies/sha512.js"></script>
     <script src="/js/!app.js"></script>
+    <script src="/js/controllers/AddAdmin.js"></script>
     <script src="/js/controllers/AddAlumnoCtrl.js"></script>
+    <script src="/js/controllers/AddClaseCtrl.js"></script>
+    <script src="/js/controllers/AddDatoCtrl.js"></script>
+    <script src="/js/controllers/AddGruposCtrl.js"></script>
+    <script src="/js/controllers/AddHorarioCtrl.js"></script>
     <script src="/js/controllers/AddTeacherCtrl.js"></script>
     <script src="/js/controllers/ChatCtrl.js"></script>
+    <script src="/js/controllers/DelClaseCtrl.js"></script>
+    <script src="/js/controllers/DelProfeCtrl.js"></script>
+    <script src="/js/controllers/GetClasesCtrl.js"></script>
+    <script src="/js/controllers/GetDatosCtrl.js"></script>
+    <script src="/js/controllers/GetGruposCtrl.js"></script>
+    <script src="/js/controllers/GetHorariosCtrl.js"></script>
     <script src="/js/controllers/GetUsersCtrl.js"></script>
+    <script src="/js/controllers/GruposCtrl.js"></script>
+    <script src="/js/controllers/HorariosCtrl.js"></script>
+    <script src="/js/controllers/JoinClaseCtrl.js"></script>
     <script src="/js/controllers/LoginBarCtrl.js"></script>
     <script src="/js/controllers/LoginCtrl.js"></script>
     <script src="/js/controllers/RealTimeCtrl.js"></script>
+    <script src="/js/controllers/SetGrupoCtrl.js"></script>
+    <script src="/js/controllers/SetMateriasCtrl.js"></script>
+    <script src="/js/controllers/SetProfeGrupoCtrl.js"></script>
+    <script src="/js/controllers/StartClaseCtrl.js"></script>
     <script src="/js/controllers/TestCtrl.js"></script>
     <script src="/js/controllers/UsersCtrl.js"></script>
+    <script src="/js/controllers/WatchClaseCtrl.js"></script>
     <script src="/js/controllers/WeaCtrl.js"></script>
     <script src="/js/services/LoginService.js"></script>
     <!--SCRIPTS END-->

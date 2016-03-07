@@ -1,0 +1,22 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('horarios')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Horarios</span>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-show="!horarios.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-list-item class="md-3-line animateLeave" ng-repeat="horario in horarios" ng-click="showHorario(horario.id, $event)">
+        <md-icon md-svg-icon="svg/book.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2"><strong>{{horario.nombre}}</strong></h3>
+          <h4>Grupo: {{horario.grupo_horario.nombre}}</h3>
+          <p>Numero de materias: {{horario.materias.length}}</p>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeHorario(horario.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>

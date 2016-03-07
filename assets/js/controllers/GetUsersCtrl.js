@@ -4,7 +4,7 @@ app.controller('GetUsersCtrl', function ($scope, $state, $mdDialog) {
     $state.go(state);
   };
 
-  $scope.goToPerson = function(id, event) {
+  $scope.goToGrupo = function(id, event) {
     for (var i = 0; i < $scope.users.length; i++) {
       if ($scope.users[i].id == id) {
         var tempUser = $scope.users[i];

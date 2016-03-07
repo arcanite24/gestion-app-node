@@ -1,0 +1,49 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('grupos')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Quitar profesor/alumno</span>
+        <md-input-container>
+          <label>Grupo</label>
+          <md-select ng-model="grupoid" ng-change="setGrupo()" style="margin-left: 1em;">
+            <md-option ng-repeat="grupo in grupos" value="{{grupo.id}}">
+              {{grupo.nombre}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-show="!grupos.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-subheader>
+        <h4>Profesores</h4>
+      </md-subheader>
+      <md-list-item ng-if="!grupoDetalle.users.length">
+        <h4>Grupo sin profesores asignados.</h4>
+      </md-list-item>
+      <md-list-item class="md-2-line animateLeave" ng-repeat="profe in grupoDetalle.profesores">
+        <md-icon md-svg-icon="svg/account-multiple.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2"><strong>{{profe.name}}</strong></h3>
+          <h4>{{profe.username}}</h4>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeProfe(profe.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+      <md-subheader>
+        <h4>Alumnos</h4>
+      </md-subheader>
+      <md-list-item ng-if="!grupoDetalle.profesores.length">
+        <h4>Grupo sin alumnos asigados.</h4>
+      </md-list-item>
+      <md-list-item class="md-2-line animateLeave" ng-repeat="alumno in grupoDetalle.users">
+        <md-icon md-svg-icon="svg/account-multiple.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2"><strong>{{alumno.name}}</strong></h3>
+          <h4>{{alumno.username}}</h4>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeAlumno(alumno.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>

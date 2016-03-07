@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clase en vivo.</title>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="materialize.min.css">
+</head>
+<style>
+  video {
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  .chat {
+    overflow-x: hidden;;
+    min-height: 400px;
+    max-height: 400px;
+  }
+</style>
+<script src="rtc.js"></script>
+<body>
+  <nav class="red darken-4">
+    <div class="nav-wrapper" >
+      <a href="#" class="brand-logo">&nbsp;Clases en vivo - IPN</a>
+      <ul id="nav-mobile" class="right">
+        <li><a href="/#/index">Regresar</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col s6">
+        <div id="l-video"></div>
+      </div>
+      <div class="col s6 row z-depth-2" style="margin-top: 1em; padding: 0px; padding-top: 0px;">
+
+        <div class="blue z-depth-1 col s12">
+          <h5 class="white-text ">Chat</h5>
+        </div>
+
+        <div class="col s12 chat">
+          <div class="row chat-msg">
+            <!-- Out msg -->
+            <div class="msg col s9" style="margin-left: 1em;">
+              <div class="card">
+                <div class="card-content">Hola mundo</div>
+              </div>
+            </div>
+            <div class="msg col s9 right" style="margin-right: 1em;">
+              <div class="card">
+                <div class="card-content right-align">Hola mundo</div>
+              </div>
+            </div>
+            <div class="msg col s9 right" style="margin-right: 1em;">
+              <div class="card">
+                <div class="card-content right-align">Hola mundo</div>
+              </div>
+            </div>
+            <div class="msg col s9 right" style="margin-right: 1em;">
+              <div class="card">
+                <div class="card-content right-align">Hola mundo</div>
+              </div>
+            </div>
+            <div class="msg col s9 right" style="margin-right: 1em;">
+              <div class="card">
+                <div class="card-content right-align">Hola mundo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 ">
+          <form class="msgForm">
+            <input type="text" placeholder="Mensaje:" class="wea">
+            <input type="submit">
+          </form>
+        </div>
+
+      </div>
+      <div id="r-video"></div>
+    </div>
+  </div>
+
+  <script src="/js/dependencies/sails.io.js"></script>
+  <script src="jquery-2.1.1.min.js"></script>
+  <script src="videochat.js"></script>
+  <script src="materialize.min.js"></script>
+  <script src="realtime.js"></script>
+</body>
+</html>

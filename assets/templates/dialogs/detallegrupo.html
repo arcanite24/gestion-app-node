@@ -1,0 +1,18 @@
+<div class="container" layout="column" layout-padding layout-align="center center">
+  <h3>Inspeccionar grupo</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start">
+    <span><strong>Nombre: </strong>{{grupo.nombre}}</span>
+    <span><strong>Cantidad de alumnos: </strong>{{grupo.users.length}}</span>
+    <span><strong>Cantidad de profesores: </strong>{{grupo.profesores.length}}</span>
+    <md-divider ng-if="grupo.users.length"></md-divider>
+  </div>
+  <h3 ng-if="grupo.users.length">Alumnos</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start" ng-if="grupo.users.length">
+    <span ng-repeat="alumno in grupo.users"><strong>{{alumno.name}}</strong></span>
+  </div>
+  <md-divider ng-if="grupo.profesores.length"></md-divider>
+  <h3 ng-if="grupo.profesores.length">Profesores</h3>
+  <div class="datos" layout="column" layout-padding layout-align="start" ng-if="grupo.profesores.length">
+    <span ng-repeat="profe in grupo.profesores"><strong>{{profe.name}}</strong></span>
+  </div>
+</div>

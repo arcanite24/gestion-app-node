@@ -1,0 +1,33 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('horarios')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Clases</span>
+        <md-input-container style="margin-left: 1em;">
+          <label>Filtrar por nombre</label>
+          <input type="text" ng-model="searchText">
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-if="!clases.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-list-item class="md-2-line animateLeave" ng-repeat="clase in clases | filter:searchText" ng-click="goToGrupo(grupo.id, $event)">
+        <md-icon md-svg-icon="svg/bank.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2"><strong>{{clase.nombre}}</strong></h3>
+          <h4>
+            Semestre:
+            <span ng-if="clase.semestre == 1"> Primero</span>
+            <span ng-if="clase.semestre == 2"> Segundo</span>
+            <span ng-if="clase.semestre == 3"> Tercero</span>
+            <span ng-if="clase.semestre == 4"> Cuarto</span>
+            <span ng-if="clase.semestre == 5"> Quinto</span>
+            <span ng-if="clase.semestre == 6"> Sexto</span>
+          </h4>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeClase(clase.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>
