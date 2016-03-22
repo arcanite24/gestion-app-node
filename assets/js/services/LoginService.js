@@ -12,6 +12,8 @@ app.factory('LoginService', function ($mdToast, $state) {
         if (res.token) {
           localStorage.setItem('token', res.token);
           localStorage.setItem('user_type', res.user.type);
+          localStorage.setItem('username', res.user.username);
+          localStorage.setItem('iduser', res.user.id);
           console.log(res.user);
           $mdToast.show(
             $mdToast.simple()

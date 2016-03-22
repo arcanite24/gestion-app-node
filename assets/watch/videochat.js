@@ -1,32 +1,91 @@
 $(function () {
+
+  function addLocalMsg(text, user) {
+    var finaltext = text.replace('/', '').replace('>', '').replace('<', '');
+    var str = '<div class="msg col s9 right animated fadeIn" style="margin-right: 1em;"><div class="card"><div class="card-content right-align">'+finaltext+'<strong> :'+user+'</strong></div></div></div>';
+    $(str).appendTo('.chat-msg');
+  }
+  function addRemoteMsg(text, user) {
+    var finaltext = text.replace('/', '').replace('>', '').replace('<', '');
+    var str = '<div class="msg col s9 animated fadeIn" style="margin-left: 1em;"><div class="card"><div class="card-content"><strong>'+user+':</strong> '+finaltext+'</div></div></div>';
+    $(str).appendTo('.chat-msg');
+  }
+
   var room = window.location.search.replace('?room=', '');
-  var rtcOpts = {
+  io.socket.get('/mensaje', function (data) {
+    var mensajes = data;
+  });
+
+  $('.modal-trigger').leanModal();
+
+  $('.forma').submit(function (e) {
+    e.preventDefault();
+    var tempMsg = {
+      message: $('.msg-input').val(),
       room: room,
-      signaller: 'http://localhost:3000'
-    };
-  var rtc = RTC(rtcOpts);
-  var localVideo = document.getElementById('l-video');
-  var remoteVideo = document.getElementById('r-video');
-  var messageWindow = document.getElementById('messages');
-
-  function bindDataChannelEvents(id, channel, attributes, connection) {
-
-    channel.onmessage = function (evt) {
-      messageWindow.innerHTML = evt.data;
+      username: localStorage.getItem('username')
     };
 
-    messageWindow.onkeyup = function () {
-      channel.send(this.innerHTML);
-    };
-  }
+    io.socket.post('/mensaje/create', tempMsg, function (data) {
+      $('.msg-input').val('');
+    });
 
-  function init(session) {
-    session.createDataChannel('chat');
-    session.on('channel:opened:chat', bindDataChannelEvents);
-    console.log(session);
-  }
+  });
 
-  localVideo.appendChild(rtc.local);
-  remoteVideo.appendChild(rtc.remote);
-  rtc.on('ready', init);
+  io.socket.on('mensaje', function onServerSentEvent (msg) {
+    switch(msg.verb) {
+      case 'created':
+        if (msg.data.room == room) {
+          if (msg.data.username == localStorage.getItem('username')) {
+            console.log('Mensaje local.');
+            addLocalMsg(msg.data.message, 'Yo');
+          } else {
+            console.log('Mensaje remoto.');
+            addRemoteMsg(msg.data.message, msg.data.username);
+          }
+          var alto = $('.chat-msg').height();
+          console.log('Alto: ' + alto);
+          $("div").scrollTop(alto);
+        }
+        break;
+      default:
+        console.log('Error con los sockets.');
+        break; // ignore any unrecognized messages
+    }
+  });
+
 });
+
+
+
+//Videochat
+var room = window.location.search.replace('?room=', '');
+var rtcOpts = {
+    room: room,
+    signaller: 'http://localhost:3000'
+  };
+var rtc = RTC(rtcOpts);
+var localVideo = document.getElementById('l-video');
+var remoteVideo = document.getElementById('r-video');
+var messageWindow = document.getElementById('messages');
+
+function bindDataChannelEvents(id, channel, attributes, connection) {
+
+  channel.onmessage = function (evt) {
+    messageWindow.innerHTML = evt.data;
+  };
+
+  messageWindow.onkeyup = function () {
+    channel.send(this.innerHTML);
+  };
+}
+
+function init(session) {
+  session.createDataChannel('chat');
+  session.on('channel:opened:chat', bindDataChannelEvents);
+  console.log(session);
+}
+
+localVideo.appendChild(rtc.local);
+remoteVideo.appendChild(rtc.remote);
+rtc.on('ready', init);

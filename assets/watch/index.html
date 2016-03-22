@@ -2,8 +2,12 @@
 <html>
 <head>
   <title>Clase en vivo.</title>
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link rel="stylesheet" href="/styles/animate.css">
+  <script src="jquery-2.2.1.min.js"></script>
+  <script src="/js/dependencies/sails.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </head>
 <style>
   video {
@@ -12,7 +16,7 @@
   }
 
   .chat {
-    overflow-x: hidden;;
+    overflow-x: hidden;
     min-height: 400px;
     max-height: 400px;
   }
@@ -29,62 +33,58 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col s6">
+      <div class="col s12 hide-on-large-only">
+        <h4>Videochat no disponible en dispositivos móviles.</h4>
+      </div>
+      <div class="col s12 l6 hide-on-med-and-down">
         <div id="l-video"></div>
       </div>
-      <div class="col s6 row z-depth-2" style="margin-top: 1em; padding: 0px; padding-top: 0px;">
+      <div class="col s12 l6 row z-depth-2" style="margin-top: 1em; padding: 0px; padding-top: 0px;">
 
-        <div class="blue z-depth-1 col s12">
-          <h5 class="white-text ">Chat</h5>
+        <div class="blue z-depth-1 col s12 row">
+          <h5 class="white-text col s2">Chat</h5>
+          <a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#addnote"><i class="material-icons">description</i></a>
         </div>
 
-        <div class="col s12 chat">
-          <div class="row chat-msg">
-            <!-- Out msg -->
-            <div class="msg col s9" style="margin-left: 1em;">
-              <div class="card">
-                <div class="card-content">Hola mundo</div>
+        <div id="addnote" class="modal">
+          <div class="modal-content">
+            <h4>Agregar nota</h4>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="Titulo" id="titulo_nota" type="text" class="validate">
+                <label for="titulo_nota">Titulo de la nota</label>
               </div>
-            </div>
-            <div class="msg col s9 right" style="margin-right: 1em;">
-              <div class="card">
-                <div class="card-content right-align">Hola mundo</div>
+              <div class="input-field col s12">
+                <textarea id="texto_nota" class="materialize-textarea"></textarea>
+                <label for="texto_nota">Texto de la nota</label>
               </div>
-            </div>
-            <div class="msg col s9 right" style="margin-right: 1em;">
-              <div class="card">
-                <div class="card-content right-align">Hola mundo</div>
-              </div>
-            </div>
-            <div class="msg col s9 right" style="margin-right: 1em;">
-              <div class="card">
-                <div class="card-content right-align">Hola mundo</div>
-              </div>
-            </div>
-            <div class="msg col s9 right" style="margin-right: 1em;">
-              <div class="card">
-                <div class="card-content right-align">Hola mundo</div>
+              <div class="col s12">
+                <a class="waves-effect waves-light btn right green"><i class="material-icons right">add</i>Agregar</a>
               </div>
             </div>
           </div>
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ver notas</a>
+          </div>
         </div>
 
-        <div class="col s12 ">
-          <form class="msgForm">
-            <input type="text" placeholder="Mensaje:" class="wea">
-            <input type="submit">
+        <div class="col s12 chat">
+          <div class="row chat-msg" id="chat-win">
+          </div>
+        </div>
+
+        <div class="col s12">
+          <form class="forma">
+            <input type="text" placeholder="Mensaje:" class="msg-input">
+            <input type="submit" value="" style="display: none;">
           </form>
         </div>
 
       </div>
-      <div id="r-video"></div>
+      <div id="r-video" class="hide-on-med-and-down"></div>
     </div>
   </div>
-
-  <script src="/js/dependencies/sails.io.js"></script>
-  <script src="jquery-2.1.1.min.js"></script>
   <script src="videochat.js"></script>
-  <script src="materialize.min.js"></script>
-  <script src="realtime.js"></script>
 </body>
 </html>

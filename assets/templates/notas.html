@@ -1,0 +1,33 @@
+<div class="notes-container">
+  <div layout="row" layout-align="center center">
+    <md-card flex="60">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">
+            <md-input-container style="width: 100%">
+              <label>Titulo de la nota</label>
+              <input ng-model="titulo">
+            </md-input-container>
+          </span>
+          <span class="md-subhead">
+            <md-input-container style="width: 100%">
+              <label>Texto de la nota</label>
+              <textarea rows="8" cols="40" ng-model="texto" type="text"></textarea>
+            </md-input-container>
+          </span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-click="add()">Agregar</md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+  <div gridster="gridsterOpts" layout="row" layout-padding layout-align="center center">
+    <ul flex="80">
+      <li ng-repeat="nota in notas" class="grid md-whiteframe-2dp" gridster-item="item" size-x="nota.sizeX" size-y="nota.sizeY">
+        <span><md-icon md-svg-src="svg/remove.svg" style="margin-right: 1em; cursor: pointer;" ng-click="removeNota(nota.id)"></md-icon><strong>{{nota.titulo}}</strong></span>
+        <p>{{nota.texto}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

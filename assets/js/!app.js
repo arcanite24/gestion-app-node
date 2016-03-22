@@ -1,4 +1,4 @@
-var app = angular.module('gestionApp', ['ui.router', 'ngMaterial', 'ngMdIcons']);
+var app = angular.module('gestionApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'angularGrid', 'gridster']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/index");
@@ -32,6 +32,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('joinclase', {url: '/joinclase', templateUrl: 'templates/joinclase.html', controller: 'JoinClaseCtrl'})
     .state('startclase', {url: '/startclase', templateUrl: 'templates/startclase.html', controller: 'StartClaseCtrl'})
     .state('watchclase', {url: '/watchclase/:room', templateUrl: 'templates/watchclase.html', controller: 'WatchClaseCtrl'})
+    .state('notas', {url: '/notas', templateUrl: 'templates/notas.html', controller: 'NotasCtrl'})
     //Test
     .state('test', {url: '/test', templateUrl: 'templates/test.html', controller: 'TestCtrl'})
 

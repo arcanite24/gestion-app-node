@@ -45,6 +45,10 @@ module.exports = {
     },
     grupoAsProfe: {
       model: 'grupo'
+    },
+    notas: {
+      collection: 'nota',
+      via: 'user'
     }
   }
 };
