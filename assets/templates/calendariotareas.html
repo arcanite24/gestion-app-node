@@ -1,0 +1,6 @@
+<div layout-gt-sm="row" layout-sm="column" layout-align="center center" layout-padding layout-wrap>
+  <div class="md-whiteframe-2dp anuncio" ng-repeat="tarea in tareas | orderBy:tarea.createdAt" style="margin: 1em;" flex-gt-sm="30">
+    <span><strong>{{tarea.titulo}}</strong> | Entrega: {{tarea.entrega | date}}</span>
+    <p>{{tarea.texto}}</p>
+  </div>
+</div>

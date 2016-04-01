@@ -24,6 +24,10 @@ module.exports = {
     horario: {
       collection: 'horario',
       via: 'grupo_horario'
+    },
+    tareas:{
+      collection: 'tarea',
+      via: 'grupo'
     }
   }
 };

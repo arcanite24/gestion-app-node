@@ -26,10 +26,41 @@ $(function () {
       username: localStorage.getItem('username')
     };
 
-    io.socket.post('/mensaje/create', tempMsg, function (data) {
-      $('.msg-input').val('');
-    });
+    if (tempMsg.message != null) {
+      io.socket.post('/mensaje/create', tempMsg, function (data) {
+        $('.msg-input').val('');
+      });
+    }
 
+  });
+
+  $('#addNote').click(function () {
+    var notaTemp = {
+      titulo: $('#titulo_nota').val(),
+      texto: $('#texto_nota').val(),
+      user: localStorage.getItem('iduser')
+    };
+    var xy = Math.random() < 0.5;
+    var largo = notaTemp.texto.length / 100;
+    if (largo < 1)
+      largo = 1;
+    if (xy) {
+      notaTemp.sizeX = Math.floor(largo);
+      notaTemp.sizeY = 1;
+    } else {
+      notaTemp.sizeX = 1;
+      notaTemp.sizeY = Math.floor(largo);
+    }
+    io.socket.post('/nota', notaTemp, function(data) {
+      if (!data.error) {
+        Materialize.toast('Nota agregada correctamente.', 1000);
+        $('#titulo_nota').val('')
+        $('#texto_nota').val('')
+      } else {
+        Materialize.toast('Error.', 1000);
+        console.log(data);
+      }
+    });
   });
 
   io.socket.on('mensaje', function onServerSentEvent (msg) {

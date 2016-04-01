@@ -1,0 +1,42 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center center" layout-fill flex-sm="95" flex-gt-sm="35">
+    <div flex layout-gt-sm="row" layout-align="center center">
+      <span class="md-headline" flex="90">Agregar Exámen</span>
+      <md-icon md-svg-icon="svg/back.svg" ng-click="goto('examenes')" style="cursor: pointer; margin-left: 1em;"></md-icon>
+    </div>
+    <div flex>
+      <md-input-container style="margin-left: 1em;">
+        <label>Materia</label>
+        <md-select ng-model="materiaid">
+          <md-option ng-repeat="materia in materias" value="{{materia.id}}">
+            {{materia.nombre}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-input-container>
+        <label>Inicio</label>
+        <md-select ng-model="inicio">
+          <md-option ng-repeat="hora in horas" value="{{hora.value}}">
+            {{hora.value}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>Fin</label>
+        <md-select ng-model="fin">
+          <md-option ng-repeat="hora in horas" value="{{hora.value}}">
+            {{hora.value}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div flex>
+      <md-datepicker ng-model="fecha" md-placeholder="Fecha del exámen"></md-datepicker>
+    </div>
+    <div flex>
+      <md-button class="md-raised md-primary" ng-click="addExamen()">Añadir exámen</md-button>
+    </div>
+  </md-whiteframe>
+</div>

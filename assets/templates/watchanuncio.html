@@ -1,0 +1,6 @@
+<div layout-gt-sm="row" layout-sm="column" layout-align="center center" layout-padding layout-wrap>
+  <div class="md-whiteframe-2dp anuncio" ng-repeat="anuncio in anuncios | orderBy:anuncio.createdAt" style="margin: 1em;" flex-gt-sm="30">
+    <span><strong>{{anuncio.titulo}}</strong> - {{anuncio.createdAt | date}}</span>
+    <p>{{anuncio.texto}}</p>
+  </div>
+</div>

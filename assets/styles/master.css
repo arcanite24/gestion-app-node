@@ -64,7 +64,7 @@
 .grid {
   position: absolute;
   list-style: none;
-  background: #ffffff;;
+  background: #ffffff;
   box-sizing: border-box;
   -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
@@ -107,4 +107,40 @@ body {
 
 .open {
   display: block;
+}
+
+.anuncio {
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.anuncio.ng-leave {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+}
+.anuncio.ng-leave.ng-leave-active {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+.anuncio.ng-enter {
+  -webkit-transition: all ease 400ms;
+  transition: all ease 400ms;
+  -webkit-transition-delay: 500ms;
+  transition-delay: 500ms;
+  -webkit-transform: scale(0.5);
+   transform: scale(0.5);
+  opacity: 0;
+}
+.anuncio.ng-enter.ng-enter-active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
 }

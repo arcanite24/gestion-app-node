@@ -1,0 +1,26 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('anuncios')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Tareas</span>
+        <md-input-container style="margin-left: 1em;">
+          <label>Filtrar por titulo</label>
+          <input type="text" ng-model="searchText">
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-show="!tareas.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-list-item class="md-3-line animateLeave" ng-repeat="tarea in tareas | filter:searchText">
+        <md-icon md-svg-icon="svg/book-multiple.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-3"><strong>{{tarea.titulo}}</strong></h3>
+          <h4>Entrega: {{tarea.entrega | date}} | Grupo: <strong>{{tarea.grupo.nombre}}</strong></h4>
+          <p>{{tarea.texto}}</p>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeTarea(tarea.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>

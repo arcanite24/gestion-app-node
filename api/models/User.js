@@ -49,6 +49,10 @@ module.exports = {
     notas: {
       collection: 'nota',
       via: 'user'
+    },
+    calificaciones: {
+      collection: 'calificacion',
+      via: 'user'
     }
   }
 };

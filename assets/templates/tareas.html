@@ -1,0 +1,23 @@
+<div ng-cloak>
+  <md-list>
+    <md-subheader class="md-no-sticky" layout="column">
+      <span class="md-title">Gestión de tareas</span>
+      <span flex></span>
+      <md-button class="md-raised" ng-click="goto('index')">Regresar</md-button>
+    </md-subheader>
+    <md-list-item class="md-3-line" ng-click="goto('addtarea')">
+      <img ng-src="svg/add.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Agregar tarea</h3>
+        <p>Registrar tarea en el sistema</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('gettarea')">
+      <img ng-src="svg/book-multiple.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Consultar tareas</h3>
+        <p>Obtener información y buscar tareas</p>
+      </div>
+    </md-list-item>
+</div>

@@ -1,0 +1,20 @@
+<div layout="row" layout-padding layout-wrap layout-fill layout-align="center center" ng-cloak>
+<md-whiteframe class="md-whiteframe-3dp" flex-gt-sm="65" flex-sm="95" layout="column" layout-align="start start" layout-padding>
+  <table class="md-table">
+    <thead>
+      <th>Materia</th>
+      <th>Semestre</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="examen in examenes | orderBy:examen.fecha">
+        <td><em>{{examen.materia.nombre}}</em></td>
+        <td>{{examen.materia.semestre}}</td>
+        <td>{{examen.fecha | date}}</td>
+        <td>{{examen.hora}}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-whiteframe>
+</div>

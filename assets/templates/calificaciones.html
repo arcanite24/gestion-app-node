@@ -1,0 +1,23 @@
+<div ng-cloak>
+  <md-list>
+    <md-subheader class="md-no-sticky" layout="column">
+      <span class="md-title">Gestión de calificaciones</span>
+      <span flex></span>
+      <md-button class="md-raised" ng-click="goto('index')">Regresar</md-button>
+    </md-subheader>
+    <md-list-item class="md-3-line" ng-click="goto('addcalificacion')">
+      <img ng-src="svg/add.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Asignar calificación</h3>
+        <p>Registrar calificación en el sistema</p>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="md-3-line" ng-click="goto('getcalificacion')">
+      <img ng-src="svg/clipboard-alert.svg" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Consultar calificaciones</h3>
+        <p>Obtener información y buscar calificaciones</p>
+      </div>
+    </md-list-item>
+</div>

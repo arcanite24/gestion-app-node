@@ -1,4 +1,4 @@
-var app = angular.module('gestionApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'angularGrid', 'gridster']);
+var app = angular.module('gestionApp', ['ui.router', 'ngMaterial', 'ngMdIcons', 'ngFlowGrid', 'gridster']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/index");
@@ -32,10 +32,29 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('joinclase', {url: '/joinclase', templateUrl: 'templates/joinclase.html', controller: 'JoinClaseCtrl'})
     .state('startclase', {url: '/startclase', templateUrl: 'templates/startclase.html', controller: 'StartClaseCtrl'})
     .state('watchclase', {url: '/watchclase/:room', templateUrl: 'templates/watchclase.html', controller: 'WatchClaseCtrl'})
+    .state('clases', {url: '/clases', templateUrl: 'templates/clases.html', controller: 'ClasesCtrl'})
     .state('notas', {url: '/notas', templateUrl: 'templates/notas.html', controller: 'NotasCtrl'})
+    //Examenes
+    .state('examenes', {url: '/examenes', templateUrl: 'templates/examenes.html', controller: 'ExamenesCtrl'})
+    .state('addexamen', {url: '/addexamen', templateUrl: 'templates/addexamen.html', controller: 'AddExamenCtrl'})
+    .state('getexamen', {url: '/getexamen', templateUrl: 'templates/getexamen.html', controller: 'GetExamenCtrl'})
+    .state('calendarioexamenes', {url: '/calendarioexamenes', templateUrl: 'templates/calendarioexamenes.html', controller: 'CalendarioExamenesCtrl'})
+    //Anuncios
+    .state('anuncios', {url: '/anuncios', templateUrl: 'templates/anuncios.html', controller: 'AnunciosCtrl'})
+    .state('addanuncio', {url: '/addanuncio', templateUrl: 'templates/addanuncio.html', controller: 'AddAnuncioCtrl'})
+    .state('getanuncio', {url: '/getanuncio', templateUrl: 'templates/getanuncio.html', controller: 'GetAnuncioCtrl'})
+    .state('watchanuncio', {url: '/watchanuncio', templateUrl: 'templates/watchanuncio.html', controller: 'WatchAnuncioCtrl'})
+    //Tareas
+    .state('tareas', {url: '/tareas', templateUrl: 'templates/tareas.html', controller: 'TareasCtrl'})
+    .state('addtarea', {url: '/addtarea', templateUrl: 'templates/addtarea.html', controller: 'AddTareaCtrl'})
+    .state('gettarea', {url: '/gettarea', templateUrl: 'templates/gettarea.html', controller: 'GetTareaCtrl'})
+    .state('calendariotareas', {url: '/calendariotareas', templateUrl: 'templates/calendariotareas.html', controller: 'CalendarioTareasCtrl'})
     //Test
     .state('test', {url: '/test', templateUrl: 'templates/test.html', controller: 'TestCtrl'})
-
+    //calificaciones
+    .state('calificaciones', {url: '/calificaciones', templateUrl: 'templates/calificaciones.html', controller: 'CalificacionesCtrl'})
+    .state('addcalificacion', {url: '/addcalificacion', templateUrl: 'templates/addcalificacion.html', controller: 'AddCalificacionCtrl'})
+    .state('getcalificacion', {url: '/getcalificacion', templateUrl: 'templates/getcalificacion.html', controller: 'GetCalificacionCtrl'})
     //Real-time
     .state('realtime', {url: '/realtime', templateUrl: 'templates/realtime.html', controller: 'RealTimeCtrl'})
 });

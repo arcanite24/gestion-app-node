@@ -1,0 +1,25 @@
+<div class="" layout="row" layout-padding layout-wrap layout-fill layout-align="center center">
+  <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-wrap layout-align="center" layout-fill flex-sm="95" flex-gt-sm="60">
+    <md-list>
+      <md-subheader>
+        <md-icon md-svg-icon="svg/back.svg" ng-click="goto('calificaciones')" style="cursor: pointer; margin-right: 1em;"></md-icon>
+        <span>Califcaciones</span>
+        <md-input-container style="margin-left: 1em;">
+          <label>Filtrar por alumno</label>
+          <input type="text" ng-model="searchText">
+        </md-input-container>
+      </md-subheader>
+      <md-list-item layout="row" layout-align="center center" ng-show="!calis.length">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </md-list-item>
+      <md-list-item class="md-3-line animateLeave" ng-repeat="cali in calis | filter:searchText">
+        <md-icon md-svg-icon="svg/clipboard-alert.svg" class="md-avatar-icon"></md-icon>
+        <div class="md-list-item-text">
+          <h3 class="md-body-2">{{cali.user.name}} - {{cali.materia.nombre}}</h3>
+          <p>Parcial: {{cali.parcial}} | Calificación: {{cali.value}}</p>
+        </div>
+        <md-icon md-svg-icon="svg/remove.svg" class="md-secondary md-primary" style="cursor: pointer" ng-click="removeCali(cali.id)" aria-label="remove"></md-icon>
+      </md-list-item>
+    </md-list>
+  </md-whiteframe>
+</div>
