@@ -11,7 +11,7 @@ app.controller('AddAlumnoCtrl', function ($scope, $state, $mdToast) {
 
     var alumno = {
       username: $scope.addalumno.username,
-      password: CryptoJS.SHA512(CryptoJS.MD5($scope.addalumno.username)).toString(),
+      password: CryptoJS.SHA512($scope.addalumno.username.substr(0, 4)).toString(),
       address: $scope.addalumno.address,
       bornDate: $scope.addalumno.borndate,
       type: 2,
@@ -52,12 +52,9 @@ app.controller('AddAlumnoCtrl', function ($scope, $state, $mdToast) {
 
         $mdToast.show(
           $mdToast.simple()
-          .textContent('Profesor ' + $scope.addalumno.name + ' agregado.')
-          .hideDelay(2000));
-        $scope.addalumno.username = null;
-        $scope.addalumno.name = null;
-        $scope.addalumno.borndate = null;
-        $scope.addalumno.address = null;
+          .textContent('Alumno ' + $scope.addalumno.name + ' agregado. La contraseña son los cuatro primeros dígitos del nombre de usuario.')
+          .hideDelay(4000));
+        $scope.addalumno = null;
       }
     });
   }

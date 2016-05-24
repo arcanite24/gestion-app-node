@@ -93,7 +93,7 @@ $(function () {
 var room = window.location.search.replace('?room=', '');
 var rtcOpts = {
     room: room,
-    signaller: 'http://localhost:3000'
+    signaller: 'http://192.168.5.167:3000'
   };
 var rtc = RTC(rtcOpts);
 var localVideo = document.getElementById('l-video');

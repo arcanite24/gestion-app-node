@@ -142,5 +142,6 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 1px;
+    width: 3px;
+    background-color: rgb(140, 140, 140);
 }

@@ -6,7 +6,8 @@ app.factory('LoginService', function ($mdToast, $state) {
         url: '/auth/login',
         params: {
           username: username,
-          password: password
+          password: CryptoJS.SHA512(password).toString()
+          //CryptoJS.SHA512(password).toString()
         }
       }, function (res) {
         if (res.token) {

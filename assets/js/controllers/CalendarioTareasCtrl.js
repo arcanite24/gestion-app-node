@@ -9,12 +9,18 @@ app.controller('CalendarioTareasCtrl', function($scope, $state, $mdToast) {
     io.socket.get('/user/'+iduser, function(data) {
       if (!data.error) {
         $scope.tareas = [];
+        console.log(data);
+        if (!data.grupo) {
+          $scope.errorMsg = "No hay grupo asignado.";
+          return;
+        }
         var grupoid = data.grupo.id;
         for (var i = 0; i < tareas.length; i++) {
           if (tareas[i].grupo.id == data.grupo.id) {
             $scope.tareas.push(tareas[i]);
           }
         }
+        $scope.errorMsg = "Tareas.";
       }
     });
   });
